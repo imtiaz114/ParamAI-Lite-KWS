@@ -9,6 +9,9 @@
 * **Performance:** ~3.2 GMAC/s throughput at 50 MHz, consuming < 10 mW.
 * **Interface:** Wishbone Slave for seamless Caravel integration.
 
+## Proposal Summary
+ParamAI-Lite proposes a low-power always-on keyword spotting engine integrated into the Caravel SoC. The design leverages a compact 8×8 MAC-based CNN accelerator with INT8 precision to achieve sub-10 mW operation, enabling edge AI inference for voice-triggered applications.
+
 ## Architecture Summary
 The system features a weight-stationary dataflow pipeline including a preprocessing engine, partial sum accumulator, activation (ReLU), and pooling units. To ensure physical design success on SKY130, memory is partitioned into smaller OpenRAM macros to reduce routing congestion.
 

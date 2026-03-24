@@ -4,16 +4,16 @@
 [cite_start]**ParamAI-Lite** is a low-power edge AI accelerator designed as a complete embedded application for the Caravel SoC[cite: 1, 5, 6]. [cite_start]It is specifically optimized for **Always-On Keyword Spotting (KWS)** workloads[cite: 11].
 
 ## Project Overview
-* [cite_start]**Application:** Keyword Spotting Engine for audio processing[cite: 11, 14].
-* [cite_start]**Core Tech:** 8x8 MAC Array (64 units/cycle) with INT8 precision[cite: 41, 67, 71].
-* [cite_start]**Performance:** ~3.2 GMAC/s throughput at 50 MHz, consuming < 10 mW[cite: 33, 153].
-* [cite_start]**Interface:** Wishbone Slave for seamless Caravel integration[cite: 28, 36].
+* [cite_start] **Application:** Keyword Spotting Engine for audio processing[cite: 11, 14].
+* [cite_start] **Core Tech:** 8x8 MAC Array (64 units/cycle) with INT8 precision[cite: 41, 67, 71].
+* [cite_start] **Performance:** ~3.2 GMAC/s throughput at 50 MHz, consuming < 10 mW[cite: 33, 153].
+* [cite_start] **Interface:** Wishbone Slave for seamless Caravel integration[cite: 28, 36].
 
 ## Architecture Summary
-[cite_start]The system features a weight-stationary dataflow pipeline including a preprocessing engine, partial sum accumulator, activation (ReLU), and pooling units[cite: 35, 48, 69]. [cite_start]To ensure physical design success on SKY130, memory is partitioned into smaller OpenRAM macros to reduce routing congestion[cite: 58, 60, 62].
+[cite_start]The system features a weight-stationary dataflow pipeline including a preprocessing engine, partial sum accumulator, activation (ReLU), and pooling units[cite: 35, 48, 69]. [cite_start] To ensure physical design success on SKY130, memory is partitioned into smaller OpenRAM macros to reduce routing congestion[cite: 58, 60, 62].
 
 ## AI-Assisted Design Workflow
-This project utilizes generative AI to accelerate RTL development. [cite_start]All prompt logs, raw outputs, and final edited RTL documentation are maintained in the `docs/ai_prompts/` directory to ensure transparency and reproducibility[cite: 154, 155, 162].
+This project utilizes generative AI to accelerate RTL development. [cite_start] All prompt logs, raw outputs, and final edited RTL documentation are maintained in the `docs/ai_prompts/` directory to ensure transparency and reproducibility[cite: 154, 155, 162].
 
 ## Documentation & Resources
 For detailed hardware specifications and register maps, refer to the following official documents:

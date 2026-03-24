@@ -12,6 +12,26 @@
 ## Architecture Summary
 The system features a weight-stationary dataflow pipeline including a preprocessing engine, partial sum accumulator, activation (ReLU), and pooling units. To ensure physical design success on SKY130, memory is partitioned into smaller OpenRAM macros to reduce routing congestion.
 
+## System Architecture
+### Top-Level System Block Diagram (KWS Engine)
+
+```mermaid
+flowchart TD
+    subgraph "ParamAI-Lite: Always-On Keyword Spotting Engine"
+        direction TB
+        Mic["I2S Digital Microphone<br/>Audio Input"] 
+        --> FE["Feature Extraction<br/>(MFCC via firmware or lightweight HW)"]
+        --> Acc["ParamAI-Lite Accelerator<br/>(CNN Inference)"]
+        --> DL["Decision Logic<br/>(Keyword Detection)"]
+        --> Out["Output Actions<br/>• GPIO / LED<br/>• Interrupt to RISC-V Core<br/>• Optional Wake-up"]
+    end
+
+    Caravel["Caravel SoC<br/>(Wishbone Slave Interface)"] <--> Acc
+
+    style Acc fill:#e3f2fd,stroke:#1565c0,stroke-width:3px
+    style Mic fill:#f1f8e9,stroke:#2e7d32
+```
+
 ## Roadmap & Development Plan
 This project follows a 5-week execution timeline to meet the final design submission deadline of April 30th.
 

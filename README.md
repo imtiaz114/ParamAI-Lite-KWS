@@ -1,33 +1,19 @@
-<div align="center">
+# ParamAI-Lite: Low-Power Edge AI Accelerator System
+### ChipFoundry Silicon Application Challenge Submission (SKY130)
 
-<img src="https://umsousercontent.com/lib_lnlnuhLgkYnZdkSC/hj0vk05j0kemus1i.png" alt="ChipFoundry Logo" height="140" />
+[cite_start]**ParamAI-Lite** is a low-power edge AI accelerator designed as a complete embedded application for the Caravel SoC[cite: 1, 5, 6]. [cite_start]It is specifically optimized for **Always-On Keyword Spotting (KWS)** workloads[cite: 11].
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Inter&size=44&duration=3000&pause=600&color=4C6EF5&center=true&vCenter=true&width=1100&lines=Caravel+User+Project+Template;OpenLane+%2B+ChipFoundry+Flow;Verification+and+Shuttle-Ready)](https://git.io/typing-svg)
+## Project Overview
+* [cite_start]**Application:** Keyword Spotting Engine for audio processing[cite: 11, 14].
+* [cite_start]**Core Tech:** 8x8 MAC Array (64 units/cycle) with INT8 precision[cite: 41, 67, 71].
+* [cite_start]**Performance:** ~3.2 GMAC/s throughput at 50 MHz, consuming < 10 mW[cite: 33, 153].
+* [cite_start]**Interface:** Wishbone Slave for seamless Caravel integration[cite: 28, 36].
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![ChipFoundry Marketplace](https://img.shields.io/badge/ChipFoundry-Marketplace-6E40C9.svg)](https://platform.chipfoundry.io/marketplace)
+## Architecture Summary
+[cite_start]The system features a weight-stationary dataflow pipeline including a preprocessing engine, partial sum accumulator, activation (ReLU), and pooling units[cite: 35, 48, 69]. [cite_start]To ensure physical design success on SKY130, memory is partitioned into smaller OpenRAM macros to reduce routing congestion[cite: 58, 60, 62].
 
-</div>
-
-## Table of Contents
-- [Overview](#overview)
-- [Documentation & Resources](#documentation--resources)
-- [Prerequisites](#prerequisites)
-- [Project Structure](#project-structure)
-- [Starting Your Project](#starting-your-project)
-- [Development Flow](#development-flow)
-- [GPIO Configuration](#gpio-configuration)
-- [Local Precheck](#local-precheck)
-- [Checklist for Shuttle Submission](#checklist-for-shuttle-submission)
-
-## Overview
-This repository contains a user project designed for integration into the **Caravel chip user space**. Use it as a template for integrating custom RTL with Caravel's system-on-chip (SoC) utilities, including:
-
-* **IO Pads:** Configurable general-purpose input/output.
-* **Logic Analyzer Probes:** 128 signals for non-intrusive hardware debugging.
-* **Wishbone Port:** A 32-bit standard bus interface for communication between the RISC-V management core and your custom hardware.
-
----
+## AI-Assisted Design Workflow
+This project utilizes generative AI to accelerate RTL development. [cite_start]All prompt logs, raw outputs, and final edited RTL documentation are maintained in the `docs/ai_prompts/` directory to ensure transparency and reproducibility[cite: 154, 155, 162].
 
 ## Documentation & Resources
 For detailed hardware specifications and register maps, refer to the following official documents:
@@ -228,4 +214,4 @@ cf precheck --checks license --checks makefile  # Run specific checks only
 - [ ] Hardened Macros are LVS and DRC clean.
 - [ ] user_project_wrapper matches the required pin order/template.
 - [ ] Design passes the local cf precheck.
-- [ ] Documentation (this README) is updated with project-specific details.
+- [X] Documentation (this README) is updated with project-specific details.

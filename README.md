@@ -1,19 +1,32 @@
 # ParamAI-Lite: Low-Power Edge AI Accelerator System
 ### ChipFoundry Silicon Application Challenge Submission (SKY130)
 
-**ParamAI-Lite** is a low-power edge AI accelerator designed as a complete embedded application for the Caravel SoC[cite: 1, 5, 6]. It is specifically optimized for **Always-On Keyword Spotting (KWS)** workloads[cite: 11].
+**ParamAI-Lite** is a low-power edge AI accelerator designed as a complete embedded application for the Caravel SoC. It is specifically optimized for **Always-On Keyword Spotting (KWS)** workloads.
 
 ## Project Overview
-* **Application:** Keyword Spotting Engine for audio processing[cite: 11, 14].
-* **Core Tech:** 8x8 MAC Array (64 units/cycle) with INT8 precision[cite: 41, 67, 71].
-* **Performance:** ~3.2 GMAC/s throughput at 50 MHz, consuming < 10 mW[cite: 33, 153].
-* **Interface:** Wishbone Slave for seamless Caravel integration[cite: 28, 36].
+* **Application:** Keyword Spotting Engine for audio processing.
+* **Core Tech:** 8x8 MAC Array (64 units/cycle) with INT8 precision.
+* **Performance:** ~3.2 GMAC/s throughput at 50 MHz, consuming < 10 mW.
+* **Interface:** Wishbone Slave for seamless Caravel integration.
 
 ## Architecture Summary
-The system features a weight-stationary dataflow pipeline including a preprocessing engine, partial sum accumulator, activation (ReLU), and pooling units[cite: 35, 48, 69]. To ensure physical design success on SKY130, memory is partitioned into smaller OpenRAM macros to reduce routing congestion[cite: 58, 60, 62].
+The system features a weight-stationary dataflow pipeline including a preprocessing engine, partial sum accumulator, activation (ReLU), and pooling units. To ensure physical design success on SKY130, memory is partitioned into smaller OpenRAM macros to reduce routing congestion.
+
+## Roadmap & Development Plan
+This project follows a 5-week execution timeline to meet the final design submission deadline of April 30th.
+
+| Week | Focus | Deliverable |
+| :--- | :--- | :--- |
+| **Week 1** | Infrastructure | Wishbone interface, configuration registers, and PCB schematic. |
+| **Week 2** | Control Logic | Two-process FSM design, input/output buffers, and initial floorplan. |
+| **Week 3** | Compute Core | 8x8 MAC array implementation and RTL synthesis for SKY130. |
+| **Week 4** | Neural Ops | Activation (ReLU), pooling units, and RISC-V management firmware. |
+| **Week 5** | Integration | Full system assembly, Gate-Level Simulation (GLS), and final demo. |
+
+---
 
 ## AI-Assisted Design Workflow
-This project utilizes generative AI to accelerate RTL development. All prompt logs, raw outputs, and final edited RTL documentation are maintained in the `docs/ai_prompts/` directory to ensure transparency and reproducibility[cite: 154, 155, 162].
+This project utilizes generative AI to accelerate RTL development. All prompt logs, raw outputs, and final edited RTL documentation are maintained in the `docs/ai_prompts/` directory to ensure transparency and reproducibility.
 
 ## Documentation & Resources
 For detailed hardware specifications and register maps, refer to the following official documents:
